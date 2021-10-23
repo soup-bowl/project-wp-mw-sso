@@ -1,2 +1,2 @@
-# WordPress2MediaWiki-SSO
+# MediaWiki Single Sign-on with WordPress
 Use WordPress login system for MediaWiki access.
