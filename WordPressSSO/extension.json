@@ -1,0 +1,12 @@
+{
+	"name": "WordPressSSO",
+	"description": "Configures MediaWiki to use a WordPress system for authentication.",
+	"version": "0.1",
+	"author": [
+		"[https://www.soupbowl.io Casey aka soup-bowl]"
+	],
+	"url": "https://github.com/soup-bowl/WordPress2MediaWiki-SSO",
+	"license-name": "GPL-3.0",
+	"type": "other",
+	"manifest_version": 1
+}

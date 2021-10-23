@@ -1,0 +1,57 @@
+version: '3.6'
+services:
+  database:
+    image: mariadb:latest
+    volumes:
+    - db-persist:/var/lib/mysql
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 1
+      MARIADB_DATABASE: wp2mwsso
+      MARIADB_USER: test
+      MARIADB_PASSWORD: password
+  db_pma:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+    - database
+    ports:
+    - 8082:80
+    environment:
+      PMA_USER: test
+      PMA_PASSWORD: password
+  wp:
+    depends_on:
+    - database
+    image: wordpress:latest
+    volumes:
+    - "wp-persist:/var/www/html"
+    ports:
+    - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: wp2mwsso
+      WORDPRESS_DB_USER: test
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DEBUG: 1
+  mw:
+    depends_on:
+    - database
+    image: mediawiki:latest
+    volumes:
+    - "mw-persist-ext:/var/www/html/extensions"
+    - "mw-persist-img:/var/www/html/images"
+    - "./.docker/LocalSettings.php:/var/www/html/LocalSettings.php"
+    - "./WordPressSSO:/var/www/html/extensions/WordPressSSO"
+    ports:
+    - 8081:80
+    links:
+    - database
+    environment:
+      MYSQL_USER: test
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: wp2mwsso
+volumes:
+    db-persist:
+    wp-persist:
+    mw-persist-ext:
+    mw-persist-img:
