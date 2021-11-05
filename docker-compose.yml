@@ -38,7 +38,9 @@ services:
   mw:
     depends_on:
     - database
-    image: mediawiki:latest
+    build:
+      context: .docker
+      dockerfile: Dockerfile
     volumes:
     - "mw-persist-ext:/var/www/html/extensions"
     - "mw-persist-img:/var/www/html/images"

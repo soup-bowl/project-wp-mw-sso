@@ -101,14 +101,14 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en-gb";
 
-$wgSecretKey = "83aedaecf69f4413ebaaecd01e2274522ff58eb9e04702aa249f4f03d7770e6d";
+$wgSecretKey = "rootytooty";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "09209ba3adbf528f";
+$wgUpgradeKey = "password";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -131,9 +131,13 @@ wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
-
 # End of automatically generated settings.
 # Add more configuration options below.
+
+# SSO
+$wgGroupPermissions['*']['autocreateaccount'] = true;
+wfLoadExtension( 'PluggableAuth' );
+wfLoadExtension( 'WSOAuth' );
 
 # Our plugin development settings.
 wfLoadExtension( 'WordPressSSO' );
