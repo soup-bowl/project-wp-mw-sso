@@ -8,5 +8,8 @@
 	"url": "https://github.com/soup-bowl/WordPress2MediaWiki-SSO",
 	"license-name": "GPL-3.0",
 	"type": "other",
-	"manifest_version": 1
+	"manifest_version": 1,
+	"AutoloadNamespaces": {
+		"AuthenticationProvider\\": "src/AuthenticationProvider/"
+	}
 }

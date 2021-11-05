@@ -138,6 +138,10 @@ wfLoadSkin( 'Vector' );
 $wgGroupPermissions['*']['autocreateaccount'] = true;
 wfLoadExtension( 'PluggableAuth' );
 wfLoadExtension( 'WSOAuth' );
-
-# Our plugin development settings.
 wfLoadExtension( 'WordPressSSO' );
+	
+$wgOAuthCustomAuthProviders = [ 'WordPress' => AuthenticationProvider\WordPressAuth::class ];
+$wgOAuthAuthProvider        = 'WordPress';
+$wgOAuthUri                 = 'http://localhost:8080/wp-admin';
+$wgOAuthClientId            = 'oYH1F1n3EeybbP35QO9p440bqSAOn6vyJQsRrM9A';
+$wgOAuthClientSecret        = 'GL8iDZ3k2UAaOANiaoAsPrmXIJZiRMHuMV7AGzIS';
