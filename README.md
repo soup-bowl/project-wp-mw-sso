@@ -8,5 +8,12 @@ This repo has a counterpart Docker Compose setup to quickstart into development.
 * WordPress - http://localhost:8080 (Install by visiting http://localhost:8080/wp-admin/install.php).
 * phpMyAdmin - http://localhost:8082.
 
+Following WordPress extensions are needed:
+* [WP OAuth Server by WP OAuth Server](https://en-gb.wordpress.org/plugins/oauth2-provider/).
+
+MediaWiki extensions are needed:
+* [PluggableAuth](https://www.mediawiki.org/wiki/Extension:PluggableAuth#Installation).
+* [WSOAuth](https://www.mediawiki.org/wiki/Extension:WSOAuth).
+
 [Docker]: https://docs.docker.com/engine/install/
 [Compose]: https://docs.docker.com/compose/
