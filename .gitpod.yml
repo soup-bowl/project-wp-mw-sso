@@ -1,0 +1,10 @@
+tasks:
+  - init: |
+      docker-compose pull
+      docker-compose build mw
+    command: |
+      docker-compose up
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - johnbillion.vscode-wordpress-hooks
