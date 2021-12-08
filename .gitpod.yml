@@ -1,11 +1,13 @@
 tasks:
   - init: |
       docker-compose pull
-      docker-compose build mw
+      docker-compose build
     command: |
       docker-compose up -d
       echo "Waiting for MySQL to initalise..." && sleep 10
+      docker-compose exec wp wp core install --url="https://8080-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --title="WordPress" --admin_user="admin" --admin_password="password1A!" --admin_email="code@soupbowl.io" --allow-root
       docker-compose exec mw php maintenance/install.php bob admin --pass="password1A!" --dbserver="database" --dbname="wp2mwsso" --dbuser="test" --dbpass="password" --dbprefix="mw_" --server="https://8081-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --scriptpath=""
+      echo "Both WordPress and Mediawiki admin accounts are 'admin' and 'password1A!'."
 vscode:
   extensions:
     - ms-azuretools.vscode-docker

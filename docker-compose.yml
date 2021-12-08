@@ -23,7 +23,9 @@ services:
   wp:
     depends_on:
     - database
-    image: wordpress:latest
+    build:
+      context: .docker
+      dockerfile: WP.Dockerfile
     volumes:
     - "wp-persist:/var/www/html"
     ports:
@@ -40,7 +42,7 @@ services:
     - database
     build:
       context: .docker
-      dockerfile: Dockerfile
+      dockerfile: MW.Dockerfile
     volumes:
     - "mw-persist-ext:/var/www/html/extensions"
     - "mw-persist-img:/var/www/html/images"

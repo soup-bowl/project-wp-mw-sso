@@ -1,4 +1,4 @@
-FROM mediawiki:1.36
+FROM docker.io/mediawiki:1.36
 
 # https://www.mediawiki.org/wiki/Extension:PluggableAuth
 RUN curl https://extdist.wmflabs.org/dist/extensions/PluggableAuth-REL1_36-70ed593.tar.gz -o plug.tar.gz \
