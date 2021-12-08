@@ -3,7 +3,9 @@ tasks:
       docker-compose pull
       docker-compose build mw
     command: |
-      docker-compose up
+      docker-compose up -d
+      echo "Waiting for MySQL to initalise..." && sleep 10
+      docker-compose exec mw php maintenance/install.php bob admin --pass="password1A!" --dbserver="database" --dbname="wp2mwsso" --dbuser="test" --dbpass="password" --dbprefix="mw_" --server="https://8081-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --scriptpath=""
 vscode:
   extensions:
     - ms-azuretools.vscode-docker

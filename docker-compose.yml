@@ -44,7 +44,6 @@ services:
     volumes:
     - "mw-persist-ext:/var/www/html/extensions"
     - "mw-persist-img:/var/www/html/images"
-    - "./.docker/LocalSettings.php:/var/www/html/LocalSettings.php"
     - "./WordPressSSO:/var/www/html/extensions/WordPressSSO"
     ports:
     - 8081:80
