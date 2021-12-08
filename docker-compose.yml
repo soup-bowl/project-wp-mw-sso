@@ -47,6 +47,7 @@ services:
     - "mw-persist-ext:/var/www/html/extensions"
     - "mw-persist-img:/var/www/html/images"
     - "./WordPressSSO:/var/www/html/extensions/WordPressSSO"
+    - "./ExtraLocalSettings.php:/var/www/html/ExtraLocalSettings.php"
     ports:
     - 8081:80
     links:

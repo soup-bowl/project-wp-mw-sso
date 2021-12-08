@@ -8,7 +8,7 @@ tasks:
       docker-compose exec wp wp core install --url="https://8080-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --title="WordPress" --admin_user="admin" --admin_password="password1A!" --admin_email="code@soupbowl.io" --allow-root
       docker-compose exec wp wp plugin install oauth2-provider --activate --allow-root
       docker-compose exec mw php maintenance/install.php bob admin --pass="password1A!" --dbserver="database" --dbname="wp2mwsso" --dbuser="test" --dbpass="password" --dbprefix="mw_" --server="https://8081-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" --scriptpath=""
-      docker-compose exec mw bash -c "echo \"\\\$wgGroupPermissions['*']['autocreateaccount'] = true;wfLoadExtension( 'PluggableAuth' );wfLoadExtension( 'WSOAuth' );wfLoadExtension( 'WordPressSSO' );\" >> LocalSettings.php"
+      docker-compose exec mw bash -c "echo \"\\\$wgGroupPermissions['*']['autocreateaccount'] = true;wfLoadExtension( 'PluggableAuth' );wfLoadExtension( 'WSOAuth' );wfLoadExtension( 'WordPressSSO' );include_once('ExtraLocalSettings.php');\" >> LocalSettings.php"
       echo "Both WordPress and Mediawiki admin accounts are 'admin' and 'password1A!'."
 vscode:
   extensions:
